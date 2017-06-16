@@ -47,8 +47,8 @@ jQuery(document).ready(function(){
 		} else {
 			singleProjectContent.addClass('is-visible');
 		}
-	});
-*/
+	});*/
+
 	//close single project content
 	singleProjectContent.on('click', '.close', function(event){
 		event.preventDefault();
