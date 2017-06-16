@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MAS</title>
+        <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css">
+        <link rel="stylesheet" type="text/css" href="fonts/style.css">
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+        
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <!--
+        <script type="text/javascript" src="js/jquery.numeric.min.js"></script>
+        -->
+        <script type="text/javascript" src="js/nicescroll.js"></script>
+        <script type="text/javascript" src="js/main.js@1"></script>
+    </head>
+    <body>
+        <div class="modals">
+            <div id="modal-callback">
+                <form action="index.html#" method="POST" class="modal-content request-callback request-callback-1">
+                    <a href="index.html#" class="modal-close">X</a>
+                    <div class="heading">
+                        <div class="row-1">Оставьте заявку</div>
+                        <div class="row-2">и получите индивидуальную</div>
+                        <div class="row-3">консультацию</div>
+                    </div>
+                    <div class="inputs">
+                        <div class="input-1 required"><input type="text" name="name" placeholder="Введите имя"></div>
+                        <div class="input-1 required"><input type="text" name="phone" placeholder="Введите телефон"></div>
+                    </div>
+                    <a href="index.html#" class="button-1 submit" onClick="_gaq.push(['_trackEvent', 'Отправка контактов', 'Отправить заявку',,, false]);">Отправить заявку</a>
+                </form>
+            </div>
+            <div class="modal-type-1" id="modal-thanks">
+                <div class="modal-content">
+                    <a href="index.html#" class="modal-close">X</a>
+                    <h2 class="title">Спасибо за заявку</h2>
+                    <div class="text">Мы свяжемся с Вами в ближайщее время!</div>
+                </div>
+            </div>
+            <div class="modal-type-1" id="what-we-1">
+                <div class="modal-content">
+                    <h2 class="title">Отбор тепла продуктов сгорания</h2>
+                    <div class="text">
+                        Экономия средств за  счет отбора тепла продуктов  сгорания и
+                        перенаправления его на использование в других технологических
+                        процессах, отоплении, горячем водоснабжении.<br><br>
+                        Экономия энергоносителей;<br><br>
+                        Период окупаемости не более 1 года. 
+                        Полностью автоматический режим работы. 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-type-1" id="what-we-2">
+                <div class="modal-content">
+                    <h2 class="title">Free cooling</h2>
+                    <div class="text">
+                        Используется для охлаждения жидкостей и газов  за счет потенциала
+                        наружного холодного воздуха в зимний и весенне-осенний периоды.<br><br>
+                        Экономия электроэнергии до 60% по сравнению с
+                        &laquo;Традиционным охлаждением&raquo;;<br><br>
+                        Период окупаемости не более 1 года.<br><br>
+                        Простая конструкция;<br><br>
+                        Полностью автоматический режим работы. 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-type-1" id="what-we-3">
+                <div class="modal-content">
+                    <h2 class="title">Отбор тепла конденсации</h2>
+                    <div class="text">
+                        Экономия энергоносителей за счет отбора тепла конденсации
+                        холодильной машины и перенаправления его для нужд производства
+                        (горячего водоснабжения, отопления помещений);<br><br>
+                        Экономия энергоносителей ;<br><br>
+                        Период окупаемости не более 1 года;<br><br>
+                        Полностью автоматический режим работы. 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-type-1" id="what-we-4">
+                <div class="modal-content">
+                    <h2 class="title">Когенерация, тригенерация</h2>
+                    <div class="text">
+                        Оборудование для получения электрической, тепловой энергии
+                        при сжигании природного и технологических газов (доменного,
+                        ферросплавного, шахтного и др.). В случае тригенерации
+                        возможно получение ледяной воды. 
+                    </div>
+                </div>
+            </div>
+            <div class="modal-type-1" id="what-we-5">
+                <div class="modal-content">
+                    <h2 class="title">Адсорбционные и абсорбционные чиллера</h2>
+                    <div class="text">
+                        Системы получения охлажденной жидкости, использующие
+                        тепловую энергию для получения холода. Применимы в
+                        системах тригенерации или как независимые устройства. 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="center-wrapper">
+                <div class="logo"></div>
+                <div class="phone">+38 <span class="code">(044)</span> 205-36-37</div>
+                <div class="text">Наше решение - Ваше энергосбережение</div>
+            </div>
+        </div>
+        <div class="homescreen">
+            <div class="center-wrapper">
+                <div class="homescreen-heading">
+                    <div class="row-1">системы энергосбережения на предприятиях</div>
+                    <div class="row-1"></div>
+                    <div class="row-2">Комплексные решения для энергосбережения</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="items">
+                    <div class="item item-1"><p>Комплексные решения энергосбережения</p></div>
+                    <div class="item item-2"><p>Установка под ключ оборудования</p></div>
+                    <div class="item item-3"><p>Быстрая окупаемость системы</p></div>
+                </div>
+                <form action="index.html#" method="POST" class="request-callback request-callback-1">
+                    <div class="heading">
+                        <div class="row-1">Оставьте заявку</div>
+                        <div class="row-2">и получите индивидуальную</div>
+                        <div class="row-3">консультацию</div>
+                    </div>
+                    <div class="inputs">
+                        <div class="input-1 required"><input type="text" name="name" placeholder="Введите имя"></div>
+                        <div class="input-1 required"><input type="text" name="phone" placeholder="Введите телефон"></div>
+                    </div>
+                    <a href="index.html#" class="button-1 submit">Отправить заявку</a>
+                </form>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="what-we">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">что мы предлагаем</h2>
+                    <h3 class="row-2">Типы систем энергосбережения</h3>
+                </div>
+                <div class="items animation-block">
+                    <a href="index.html#what-we-1" class="item animate-me"><p class="align-middle">Отбор тепла <br> продуктов сгорания</p></a>
+                    <a href="index.html#what-we-2" class="item animate-me cursor-right"><p class="align-middle">Free-cooling</p></a>
+                    <a href="index.html#what-we-3" class="item animate-me"><p class="align-middle">Отбор тепла <br> конденсации</p></a>
+                    <a href="index.html#what-we-4" class="item animate-me cursor-right"><p class="align-middle">Когенерация,&nbsp;<br> тригенерация</p></a>
+                    <a href="index.html#what-we-5" class="item animate-me cursor-bottom"><p class="align-middle">Адсорбционные, <br> абсорбционные чиллера</p></a>
+                    <a href="index.html#modal-callback" class="button-2 callback-btn modal-open animate-me">получить консультацию</a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="calculator">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">Калькулятор</h2>
+                    <h3 class="row-2">Вашей экономии</h3>
+                </div>
+                <div class="mode">
+                    <h3 class="title">Режим работы:</h3>
+                    <div class="cols">
+                        <div class="col">
+                            <input type="text" value="24" id="val_hours" readonly>
+                            <div class="caption">Часа в <br> сутки</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" value="7" id="val_days" readonly>
+                            <div class="caption">Дней в <br> неделю</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" value="52" id="val_weeks" readonly>
+                            <div class="caption">Недель <br> в год</div>
+                        </div>
+                        <div class="col hours-total">= <span class="num"><span id="val_hours_per_year">8736</span> ч/год</span></div>
+                        <div class="clear"></div>
+                        <div class="col cost">
+                            <input type="text" value="1" id="val_cost" readonly>
+                            <div class="caption">Стоимость кВт <br> энергии</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="consumption">
+                    <h3 class="title">Экономия энергии в час:</h3>
+                    <div class="select-consumption-wrapper"><div class="select-consumption"></div></div>
+                    <input type="text" value="200" id="val_consumption" readonly>
+                    <div class="clear"></div>
+                    <div class="scale">
+                        <div><p class="scale-label label-1">0 кВт</p></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div><p class="scale-label label-2">500 кВт</p></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div><p class="scale-label label-3">1000 кВт</p></div>
+                    </div>
+                </div>
+                <div class="economy">
+                    <div class="row-1">Ваша экономия в год:</div>
+                    <div class="row-2"><span class="num" id="val_economy">1555200</span> грн/год</div>
+                </div>
+            </div>
+        </div>
+        <div class="how-we">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1"><span>Принцип работы</span></h2>
+                    <h3 class="row-2"><span>Систем энергосбережения</span></h3>
+                </div>
+                <div class="scheme">
+                    <div class="scheme-label label-1">Отбор тепла <br> конденсации</div>
+                    <div class="scheme-label label-2">Отбор тепла <br> продуктов сгорания</div>
+                    <div class="scheme-label label-3">Отбор тепла <br> горячих газов</div>
+                    <div class="scheme-label label-4">Отбор тепла от <br> технологического процесса</div>
+                    <div class="scheme-label label-5">Бак <br> накопитель</div>
+                    <div class="scheme-label label-6">Ледяная вода для <br> технологических <br> нужд</div>
+                    <div class="scheme-label label-7">Горячее <br> водоснабжение</div>
+                    <div class="scheme-label label-8">Технологические <br> нужды</div>
+                    <div class="scheme-label label-9">Отопление</div>
+                </div>
+            </div>
+        </div>
+        <div class="why-we">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">почему мы?</h2>
+                    <h3 class="row-2">Чем же мы отличаемся:</h3>
+                </div>
+                <div class="items animation-block">
+                    <div class="item item-1 animate-me">
+                        <div class="item-title">ИНДИВИДУАЛЬНЫЙ ПОДХОД</div>
+                        <div class="item-text">Мы проводим индивидуальный расчет систем энергосбережения исходя из потребностей заказчиков</div>
+                    </div>
+                    <div class="item item-2 animate-me">
+                        <div class="item-title">БЫСТРАЯ ОКУПАЕМОСТЬ</div>
+                        <div class="item-text">Наши системы энергосбережения быстро окупаются и повышают конкурентоспособность на рынке.</div>
+                    </div>
+                    <div class="item item-3 animate-me">
+                        <div class="item-title">КОМПЛЕКСНЫЕ РЕШЕНИЯ</div>
+                        <div class="item-text">Проектируем, производим, инсталлируем, обслуживаем.</div>
+                    </div>
+                    <div class="item item-4 animate-me">
+                        <div class="item-title">ИСПОЛЬЗОВАНИЕ ПЕРЕДОВЫХ ТЕХНОЛОГИЙ</div>
+                        <div class="item-text">Мы польсько-украинская компания, которая использует европейские технологии и европейский подход к решению поставленных задач</div>
+                    </div>
+                    <div class="item item-5 animate-me">
+                        <div class="item-title">ВНЕДРЕНИЕ В СУЩЕСТВУЮЩИЕ СИСТЕМЫ</div>
+                        <div class="item-text">Вам не нужно будет менять оборудование на новое, мы внедряем нашу систему энергосбережения в уже существующее.</div>
+                    </div>
+                    <div class="item item-6 animate-me">
+                        <div class="item-title">100% ГАРАНТИЯ</div>
+                        <div class="item-text">Мы даем 2 года гарантии, проводим текущее и послегарантийное сервисное обслуживание. 15 лет на рынке Украины.</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="application">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">Области применения</h2>
+                </div>
+                <div class="items animation-block">
+                    <div class="item item-1 animate-me">Металлургическая</div>
+                    <div class="item item-2 animate-me">Нефтегазовая</div>
+                    <div class="item item-3 animate-me">Машиностроительная</div>
+                    <div class="item item-4 animate-me">Химическая</div>
+                    <div class="item item-5 animate-me">Торговые центры</div>
+                    <div class="item item-6 animate-me">Пищевая</div>
+                    <div class="item item-7 animate-me">Перерабатывающая</div>
+                    <div class="item item-8 animate-me">Фармацевтическая</div>
+                    <div class="item item-9 animate-me">Бизнес-центры</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="advantages">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">системы энергосбережения</h2>
+                    <h3 class="row-2">MAS-SYSTEMS - это:</h3>
+                </div>
+                <div class="scheme animation-block" data-animation-delay="200">
+                    <div class="scheme-label label-1 animate-me">
+                        <div class="row-1">Защита окружающей среды</div>
+                        <div class="row-2">и климата нашей планеты, <br> а также:</div>
+                    </div>
+                    <div class="scheme-label label-2 animate-me">
+                        <div class="row-1">ЭКОНОМИЯ</div>
+                        <div class="row-2">ДЕНЕГ</div>
+                    </div>
+                    <div class="scheme-label label-3 animate-me">
+                        <div class="row-1">БЕСПЛАТНОЕ</div>
+                        <div class="row-2">тепло</div>
+                    </div>
+                    <div class="scheme-label label-4 animate-me">
+                        <div class="row-1">БЕСПЛАТНЫЙ</div>
+                        <div class="row-2">холод</div>
+                    </div>
+                    <div class="scheme-label label-5 animate-me">
+                        <div class="row-1">ЭКОНОМИЯ</div>
+                        <div class="row-2">энергоресурсов</div>
+                    </div>
+                    <div class="scheme-label label-6 animate-me">
+                        <div class="row-1">КОРОТКИЕ</div>
+                        <div class="row-2">сроки окупаемости</div>
+                    </div>
+                    <div class="scheme-label label-7 animate-me">
+                        <div class="row-1">ВЫСОКАЯ</div>
+                        <div class="row-2">эффективность</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reasons">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">3 причины заказать</h2>
+                    <h3 class="row-3">прямо сейчас</h3>
+                    <h3 class="row-2">Наше решение - Ваше энергосбережение. <br> Начните зарабатывать деньги в долгосрочной перспективе</h3>
+                </div>
+                <div class="items animation-block" data-animation-delay="200">
+                    <div class="item item-1 animate-me">
+                        <div class="item-title">Европейское качество</div>
+                        <div class="item-text">использование передовых <br> технологий и разработок, <br> применение качественных <br> европейских комплектующих</div>
+                    </div>
+                    <div class="item item-2 animate-me">
+                        <div class="item-title">комплексный подход</div>
+                        <div class="item-text">анализ технологического процесса, <br> подбор и производство оборудования, <br> инсталляция, гарантийное и сервисное <br> обслуживание от одной компании</div>
+                    </div>
+                    <div class="item item-3 animate-me">
+                        <div class="item-title">гарантия качества</div>
+                        <div class="item-text">качество наших систем <br> гарантировано брендом МАС <br> и множеством довольных <br> заказчиков</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="request-callback-2">
+            <div class="center-wrapper">
+                <div class="manager"></div>
+                <div class="block-title">
+                    <h2 class="row-1">узнай</h2>
+                    <h3 class="row-2">как можно с нами экономить</h3>
+                </div>
+                <div class="left">
+                    <div class="row-1">Оставьте заявку <br> ПРЯМО СЕЙЧАС</div>
+                    <div class="row-2">и начинайте <br><span class="red">экономить</span></div>
+                    <div class="row-3"></div>
+                </div>
+                <form action="index.html#" method="POST" class="request-callback request-callback-1">
+                    <div class="heading">
+                        <div class="row-1">Оставьте заявку</div>
+                        <div class="row-2">и получите индивидуальную</div>
+                        <div class="row-3">консультацию</div>
+                    </div>
+                    <div class="inputs">
+                        <div class="input-1 required"><input type="text" name="name" placeholder="Введите имя"></div>
+                        <div class="input-1 required"><input type="text" name="phone" placeholder="Введите телефон"></div>
+                    </div>
+                    <a href="index.html#" class="button-1 submit">Отправить заявку</a>
+                </form>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="results animation-block" data-animation-delay="10">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1">результаты</h2>
+                    <h3 class="row-2">нашей работы</h3>
+                </div>
+                <div class="items animate-me">
+                    <div class="item item-1">
+                        <div class="item-caption">Экономия затрат на:</div>
+                        <div class="item-slider"><div class="slider-range"></div><div class="slider-handle"></div></div>
+                        <div class="item-percents"><span class="inc">41</span>%</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item item-2">
+                        <div class="item-caption">Повышение эффективности процессов на:</div>
+                        <div class="item-slider"><div class="slider-range"></div><div class="slider-handle"></div></div>
+                        <div class="item-percents"><span class="inc">35</span>%</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item item-3">
+                        <div class="item-caption">Оптимизация затрат компании на:</div>
+                        <div class="item-slider"><div class="slider-range"></div><div class="slider-handle"></div></div>
+                        <div class="item-percents"><span class="inc">22</span>%</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item item-4">
+                        <div class="item-caption">Сокращение производственных потерь на:</div>
+                        <div class="item-slider"><div class="slider-range"></div><div class="slider-handle"></div></div>
+                        <div class="item-percents"><span class="inc">58</span>%</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="item item-5">
+                        <div class="item-caption">Довольных потребителей системы MAS SYSTEMS:</div>
+                        <div class="item-slider"><div class="slider-range"></div><div class="slider-handle"></div></div>
+                        <div class="item-percents"><span class="inc">100</span>%</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1"><b>часто-задаваемые</b> вопросы</h2>
+                </div>
+                <div class="border">
+                    <div class="qa">
+                        <div class="q">Как мне узнать полную стоимость внедрения энергосбережения?</div>
+                        <div class="a">Мы подходим к каждому проекту индивидуально. Оставьте заявку и с Вами свяжется наш специалист.</div>
+                        <div class="q">Сколько времени занимает установка оборудования?</div>
+                        <div class="a">Установка занимает от 1 до 2 месяцев.</div>
+                        <div class="q">За сколько времени моя установка окупится?</div>
+                        <div class="a">Срок полной окупаемости системы энергосбережения – составляет как правило 1 год.</div>
+                        <div class="q">Даете ли вы какие либо гарантии?</div>
+                        <div class="a">Да! Вы получаете 2 года гарантии на оборудование, и проводим текущее и послегарантийное сервисное обслуживание.</div>
+                    </div>
+                    <form action="index.html#" method="POST" class="request-callback request-callback-3">
+                        <div class="heading">Не нашли своего вопроса? Задайте его здесь: </div>
+                        <div class="inputs">
+                            <input type="hidden" name="from" value="Форма вопроса">
+                            <div class="textarea-1"><textarea name="question"></textarea></div>
+                            <div class="input-1 required"><input type="text" name="phone" placeholder="Ваш телефон:"></div>
+                            <div class="input-1 required"><input type="text" name="email" placeholder="Обратный E-mail:"></div>
+                            <a href="index.html#" class="button-3 submit" onClick="_gaq.push(['_trackEvent', 'Отправка вопроса', 'Задать вопрос',,, false]);">Задать вопрос</a>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="on-map">
+            <div class="center-wrapper">
+                <div class="block-title">
+                    <h2 class="row-1"><b>как нас</b> найти</h2>
+                </div>
+            </div>
+            <div class="center-wrapper shadow">
+                <div class="address">
+                    <p><b>ООО &quot;МАС Системз&quot;</b></p>
+                    <p>03062, г.Киев, просп. Победы 67,</p>
+                    <p><b>Тел./факс:</b> +38 (044) 205-36-37</p>
+                </div>
+            </div>
+            <div id="map_canvas">
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5080.1508546707055!2d30.40225970906203!3d50.45832010067984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc5c8f00d1a9%3A0x60ebc9589ed6f496!2z0L_RgNC-0YHQv9C10LrRgiDQn9C10YDQtdC80L7Qs9C4LCA2Nywg0JrQuNGX0LI!5e0!3m2!1sru!2sua!4v1496389553124" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+            
+            </div>
+        </div>
+        <div class="footer">
+            <div class="center-wrapper">
+                <div class="logo"></div>
+                <div class="phone">+38 <span class="code">(044)</span> 205-36-37</div>
+                <div class="text">
+                    <div class="row-1">Наше решение - ваше энергосбережение</div>
+                    <div class="row-2">Сайт разработан студией <a href="http://landing.kiev.ua" target="_blank">Landing.kiev.ua</a></div>
+                </div>
+            </div>
+        </div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter27339323 = new Ya.Metrika({id:27339323,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://d31j93rd8oukbv.cloudfront.net/metrika/watch_ua.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<!-- /Yandex.Metrika counter -->      
+        
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57717993-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </body>
+</html>

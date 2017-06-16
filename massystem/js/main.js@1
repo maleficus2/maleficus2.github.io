@@ -1,0 +1,255 @@
+/* MAP */
+/*
+ymaps.ready(init);
+var myMap, 
+    myPlacemark;
+
+function init(){ 
+    myMap = new ymaps.Map("map_canvas", {
+        center: [50.458025, 30.406042],
+        zoom: 16
+    }); 
+
+    myPlacemark = new ymaps.Placemark([50.458025, 30.406042]);
+
+    myMap.geoObjects.add(myPlacemark);
+    myMap.behaviors.disable("scrollZoom");
+    myMap.controls.remove("mapTools");
+}
+*/
+/* niceScroll */
+
+function niceScrollInit(){
+    $("html").niceScroll({
+        scrollspeed: 60,
+        mousescrollstep: 35,
+        cursorwidth: 10,
+        cursorborder: 0,
+        cursorcolor: '#2D3032',
+        cursorborderradius: 2,
+        autohidemode: true,
+        horizrailenabled: false
+    });
+    $('html').addClass('no-overflow-y');
+}
+
+/* ANIMATIONS */
+
+function animate() {
+    var vScroll = $(window).scrollTop() + $(window).height() - 100;
+    $('.animation-block').each(function() {
+        var a = $(this).attr('data-animation-delay');
+        var b;
+        (a%1===0)?b=a:b=300;
+        if (vScroll > $(this).offset().top) {
+            $(this).find('.animate-me').each(function(i) {
+                if (!$(this).hasClass('animated')) {
+                    var o = $(this);
+                    setTimeout(function() {
+                        o.addClass('animated');
+                    }, (i++)*b);
+                }
+            });
+        }
+    });
+    
+    var numbers = $('.results .items');
+    var incTo = [];
+    
+    if (vScroll > numbers.offset().top) {
+    numbers.find('.inc').each(function(i) {
+        if (!$(this).hasClass('counted')) {
+            var t = $(this);
+            incTo[i] = parseInt(t.text());
+            var s = Math.floor(3000/incTo[i]);
+            var a = 0;
+            var p = 1;
+            var x = setInterval(function() {
+                if ((incTo[i]-a)<p) {
+                    p = incTo[i]-a;
+                }
+                if (a === incTo[i]) {
+                    clearInterval(x);
+                }
+                t.text((a+=p));
+            }, s);
+            $(this).addClass('counted');
+        }
+    });
+}
+}
+
+$(window).load(function () {
+    $(document).ready(function($) {
+        $('.align-middle').each(function() {
+            $(this).css('padding-top', ($(this).parent().innerHeight() - $(this).outerHeight()) / 2);
+        });
+    });
+    animate();
+});
+
+$(window).scroll(function() {
+    animate();
+});
+
+$(document).ready(function() {
+    var currentMousePos = { x: -1, y: -1};
+    $(document).mousemove(function(event) {
+        currentMousePos.x = event.pageX;
+        currentMousePos.y = event.pageY;
+        if (typeof(hoverPopupWnd) !== "undefined") {
+            if (hoverPopupWnd.hasClass('cursor-right')) {
+                hoverPopupWnd.css('right', Math.abs(($('body').innerWidth() - currentMousePos.x)) + 20 + 'px').css('top', currentMousePos.y  - 100 + 'px');
+            } else if (hoverPopupWnd.hasClass('cursor-bottom')) {
+                hoverPopupWnd.css('left', currentMousePos.x + 20 + 'px').css('bottom', Math.abs(($('body').innerHeight() - currentMousePos.y)) - 80 + 'px');
+            } else {
+                hoverPopupWnd.css('left', currentMousePos.x + 20 + 'px').css('top', currentMousePos.y  - 100 + 'px');
+            }
+        }
+    });
+    
+    var hoverPopupWnd;
+    $('.what-we .item').mouseenter(function() {
+        hoverPopupWnd = $($(this).attr('href')).clone().removeAttr('id').addClass('hoverPopupWnd').appendTo('body');
+        if ($(this).hasClass('cursor-right')) {
+            hoverPopupWnd.addClass('cursor-right');
+        }
+        if ($(this).hasClass('cursor-bottom')) {
+            hoverPopupWnd.addClass('cursor-bottom');
+        }
+        
+    }).mouseleave(function() {
+        hoverPopupWnd.remove();
+    }).click(function() {
+        return false;
+    });
+    
+    if(!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        niceScrollInit();
+    }
+    
+    var calc = new Object();
+    calc.val_hours = $('#val_hours');
+    calc.val_days = $('#val_days');
+    calc.val_weeks = $('#val_weeks');
+    calc.val_cost = $('#val_cost');
+    calc.val_hours_per_year = $('#val_hours_per_year');
+    calc.val_consumption = $('#val_consumption');
+    calc.val_consumption_slider = $('.calculator .select-consumption').slider({
+        range: 'min',
+        min: 0,
+        max: 1000,
+        step: 100,
+        value: 200,
+        slide: function(event, ui) {
+            calc.val_consumption.val(ui.value);
+            calc.refresh();
+        }
+    });
+    calc.val_economy = $('#val_economy');
+    calc.refresh = function() {
+        if(!isNaN(calc.val_hours.val()) && !isNaN(calc.val_days.val()) && !isNaN(calc.val_weeks.val()) && !isNaN(calc.val_cost.val()) && !isNaN(calc.val_consumption.val())) {
+            calc.val_hours_per_year.text(calc.val_hours.val() * calc.val_days.val() * calc.val_weeks.val());
+            calc.val_economy.text(Math.floor(parseInt(calc.val_hours_per_year.text()) * calc.val_consumption.val() * calc.val_cost.val()));
+            
+            if(calc.val_consumption.val() == 0) {
+            val_consumption.value = 1;
+             calc.val_economy.text(Math.floor(parseInt(calc.val_hours_per_year.text()) * 1 * calc.val_cost.val())); }
+             
+        }
+    };
+    
+    calc.refresh();
+    
+    calc.val_hours.spinner({min: 1, max: 24, stop: function( event, ui ) { calc.refresh(); }, change: function( event, ui ) { calc.refresh(); }});
+    calc.val_days.spinner({min: 1, max: 7, stop: function( event, ui ) { calc.refresh(); }, change: function( event, ui ) { calc.refresh(); }});
+    calc.val_weeks.spinner({min: 1, max: 52, stop: function( event, ui ) { calc.refresh(); }, change: function( event, ui ) { calc.refresh(); }});
+    calc.val_cost.spinner({min: 0.3, step: 0.05, stop: function( event, ui ) { calc.refresh(); }, change: function( event, ui ) { calc.refresh(); }});
+    calc.val_consumption.spinner({
+        min: 1,
+        max: 1000,
+        stop: function( event, ui ) {
+            calc.val_consumption_slider.slider('value', parseInt(calc.val_consumption.val()));
+            calc.refresh();
+        },
+        change: function( event, ui ) {
+            calc.val_consumption_slider.slider('value', parseInt(calc.val_consumption.val()));
+            calc.refresh();
+        }
+    });
+    
+    $('.fancybox').fancybox();
+    
+    //$('input[name="phone"]').inputmask({'mask' : '+7(999) 999-99-99', 'placeholder' : '_'});
+        
+    $(".request-callback .submit").click(function() {
+        var a = $(this).closest('form');
+        var x = true;
+        $(".request-callback").find('input[type=text]').closest('div').css('background-color', '#fff');
+        a.find('.input-1.required input[type=text]').each(function() {
+            if ($(this).val() === '') {
+                $(this).closest('div').css('background-color', '#ffcccc');
+                $(this).focus();
+                x = false;
+                return false;
+            }
+        });
+        if (x) {
+            $(".request-callback").find('input[type=text]').closest('div').css('background-color', '#fff');
+            a.submit();
+        }
+        return false;
+    });
+    
+    $('.request-callback').submit(function() {
+        var msg = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'confirm.php',
+            data: msg,
+            success: function(data) {
+                if (data === 'OK') {
+                    $.fancybox.open([{
+                        href: '#modal-thanks'
+                    }], {
+                        autoSize: true,
+                        type: 'inline',
+                        closeBtn: false,
+                        padding: 0,
+                        openEffect: 'elastic',
+                        closeEffect: 'elastic',
+                        scrolling: 'no',
+                        beforeShow: function() {
+                            $(".fancybox-skin").css("background-color", "transparent");
+                        }
+                    });
+                }
+            },
+            error: function() {
+                alert('Ошибка отправки данных. Попробуйте еще раз.');
+            }
+        });
+        return false;
+    });
+    
+    $('.modal-open').fancybox({
+        autoSize: true,
+        type: 'inline',
+        closeBtn: false,
+        padding: 0,
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+        scrolling: 'no',
+        beforeShow: function() {
+            $(".fancybox-skin").css("background-color", "transparent");
+        }
+    }).click(function() {
+        $(this).closest('.clone-inputs').find('input').clone().appendTo('.modal-type-1 .request-callback .hidden');
+    });
+    
+    $('.modal-close').click(function() {
+        $('.modal-type-1 .request-callback .hidden').empty();
+        $.fancybox.close();
+        return false;
+    });
+});
